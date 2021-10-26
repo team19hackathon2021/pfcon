@@ -38,7 +38,7 @@ jobs:
 
   build:
     needs: [test-pfcon, test-cube]
-    if: github.event_name == 'push' || github.event_name == 'release'
+    if: ${{ github.repository == 'FNNDSC/pfcon' && (github.event_name == 'push' || github.event_name == 'release') }}
     runs-on: ubuntu-20.04
     steps:
       - name: Get git tag
